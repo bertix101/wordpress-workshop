@@ -1,4 +1,4 @@
-# Create WP Database Client SG security group
+# Create WP Database Client security group
 resource "aws_security_group" "wp-workshop-db-client-sg" {
   name        = "wp-workshop-db-client-sg"
   description = "Security group for clients accessing the WP database"
@@ -19,7 +19,7 @@ resource "aws_security_group" "wp-workshop-db-client-sg" {
 }
 
 
-# Create WP Database SG security group
+# Create WP Database security group
 resource "aws_security_group" "wp-workshop-db-sg" {
   name        = "wp-workshop-db-sg"
   description = "Security group for the WP database"
@@ -69,7 +69,7 @@ resource "aws_rds_cluster" "wp-rds-cluster" {
   database_name          = "wpdb"
   master_username        = "wpadmin"
   master_password        = "wpadmin01"
-  skip_final_snapshot = true
+  skip_final_snapshot    = true
   db_subnet_group_name   = aws_db_subnet_group.wp-db-subnet-group.name
   vpc_security_group_ids = [aws_security_group.wp-workshop-db-sg.id]
 }
