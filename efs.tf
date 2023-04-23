@@ -26,11 +26,11 @@ resource "aws_security_group" "wp-workshop-efs-sg" {
   vpc_id      = aws_vpc.wp-workshop-vpc.id
 
   ingress {
-    description              = "Allow inbound traffic on port 2049 from WP EFS Client SG"
-    from_port                = 2049
-    to_port                  = 2049
-    protocol                 = "tcp"
-    security_groups          = [aws_security_group.wp-workshop-efs-client-sg.id]
+    description     = "Allow inbound traffic on port 2049 from WP EFS Client SG"
+    from_port       = 2049
+    to_port         = 2049
+    protocol        = "tcp"
+    security_groups = [aws_security_group.wp-workshop-efs-client-sg.id]
   }
 
   egress {
